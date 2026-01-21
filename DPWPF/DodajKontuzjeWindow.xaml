@@ -1,0 +1,24 @@
+﻿<Window x:Class="DruzynaPilkawpf.DodajKontuzjeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Zgłoś uraz" Height="300" Width="400" 
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <StackPanel Margin="20">
+        <TextBlock x:Name="TxtInfo" Text="Piłkarz: ..." FontSize="16" FontWeight="Bold" Margin="0,0,0,20"/>
+
+        <TextBlock Text="Typ kontuzji:"/>
+        <ComboBox x:Name="CmbTyp" Margin="0,0,0,10" Height="30" VerticalContentAlignment="Center">
+            <ComboBoxItem Content="Kolano"/>
+            <ComboBoxItem Content="Bark"/>
+            <ComboBoxItem Content="Mięsień"/>
+            <ComboBoxItem Content="Kostka"/>
+            <ComboBoxItem Content="Inne"/>
+        </ComboBox>
+
+        <TextBlock Text="Czas trwania (dni):"/>
+        <TextBox x:Name="TxtDni" Margin="0,0,0,20" Height="30" VerticalContentAlignment="Center"/>
+
+        <Button Content="ZATWIERDŹ" Click="BtnZatwierdz_Click" Height="40" Background="#FF5555" Foreground="White" FontWeight="Bold" Cursor="Hand"/>
+    </StackPanel>
+</Window>

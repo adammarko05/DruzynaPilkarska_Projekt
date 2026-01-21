@@ -1,0 +1,49 @@
+﻿<Window x:Class="DruzynaPilkawpf.RegeneracjaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Centrum Odnowy Biologicznej" Height="450" Width="700"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <GroupBox Header="Wybierz zawodnika" Grid.Column="0">
+            <ListBox x:Name="ListaZmeczonych" SelectionChanged="ListaZmeczonych_SelectionChanged">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Nazwisko}" FontWeight="Bold"/>
+                            <TextBlock Text=" (Energia: " Foreground="Gray" Margin="5,0,0,0"/>
+                            <TextBlock Text="{Binding Stamina, StringFormat=N0}" FontWeight="Bold" Foreground="Red"/>
+                            <TextBlock Text="%)" Foreground="Gray"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </GroupBox>
+
+        <GroupBox Header="Dostępne zabiegi (IRegeneracja)" Grid.Column="1" Margin="10,0,0,0">
+            <StackPanel x:Name="PanelZabiegow" IsEnabled="False" VerticalAlignment="Center" Margin="20">
+
+                <TextBlock x:Name="TxtWybrany" Text="Wybierz piłkarza z listy" 
+                           FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+                <ProgressBar x:Name="PasekEnergii" Height="20" Margin="0,0,0,20" Minimum="0" Maximum="100"/>
+
+                <Button Content="🧖‍♂️ Sauna (+10% Energii)" Height="40" Margin="0,5" 
+                        Background="#FFDDAA" Click="BtnSauna_Click"/>
+
+                <Button Content="🧊 Zimna Kąpiel (+15% Energii)" Height="40" Margin="0,5" 
+                        Background="#AADDFF" Click="BtnKapiel_Click"/>
+
+                <Button Content="💆‍♂️ Masaż (+20% Energii)" Height="40" Margin="0,5" 
+                        Background="#AAFFAA" Click="BtnMasaz_Click"/>
+
+                <Button Content="Wróć" Height="30" Margin="0,30,0,0" Click="BtnWroc_Click"/>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</Window>
